@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File Signer</title>
+</head>
+<style>
+         body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+    .container {
+      background: #fff;
+      max-width: 800px;
+      width: 100%;
+      margin: 40px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      color: #333;
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 8px;
+      margin-top: 30px;
+    }
+    label {
+      font-weight: 600;
+      display: block;
+      margin: 12px 0 6px;
+    }
+    input[type="file"], textarea {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #fafafa;
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 10px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    pre {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 6px;
+      border: 1px solid #dee2e6;
+      max-width: 100%;
+      overflow-x: auto;
+      font-size: 14px;
+    }
+    textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    
+</style>
+<body>
+    
+          <div class="container">
+            <h2>1. Ký số file</h2>
+            <label for="fileToSign">Chọn file cần ký:</label>
+            <input type="file" id="fileToSign">
+            <button onclick="signFile()">Ký file</button>
+            <pre id="signResult"></pre>
+
+            <h2>2. Xác minh chữ ký</h2>
+            <label for="fileToVerify">Chọn file để xác minh:</label>
+            <input type="file" id="fileToVerify">
+            <label for="publicKey">Public Key (PEM):</label>
+            <textarea id="publicKey" placeholder="Public Key PEM"></textarea>
+            <label for="signature">Chữ ký (base64):</label>
+            <textarea id="signature" placeholder="Chữ ký base64"></textarea>
+            <button onclick="verifyFile()">Xác minh</button>
+            <pre id="verifyResult"></pre>
+        </div>
+    
+<script src="script.js"></script>
+</body>
+</html>
